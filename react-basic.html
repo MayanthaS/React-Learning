@@ -101,15 +101,24 @@ Full Page
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
-    <script type="text/babel">
-
+   <script src="https://unpkg.com/supersimpledev/dayjs.js"></script> 
+   <script type="text/babel">
+      const div = (
+            console.log(dayjs().format('MMMM D'))
+      );
+/*
     const productCost = 10+8*2;
+    const shippingCost =5
     const div =
     (
         <div>
         <p>productCost: ${productCost}</p>
+        <p>Shiiping cost :${shippingCost}</p>
+        <p>Total const:${productCost+shippingCost}</p>
+        <button>place your order</button>
         </div>
-    );     
+    );    
+    */ 
 
       const container = document.querySelector('.js-container');
       ReactDOM.createRoot(container).render(div);
