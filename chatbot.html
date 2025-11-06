@@ -55,35 +55,41 @@
    }
 
   function App(){
+    const chatMessages = [{
+        message:' hello chatBot',
+        sender:'user'
+    },{
+        message:'Hello! how can I help you?',
+        sender:'robot'
+    },{
+        message:'can you get today date?',
+        sender:'user'
+    },{
+        message:'Today is November 6',
+        sender:'robot'
+    }];
+
+    const chatMessageComponents = chatMessages.map((msg) =>{
+      return(
+        <ChatMessage
+         message = {msg.message}
+         sender = {msg.sender}
+        />
+        
+      );
+    });
     return(
            <>
               <ChatInput/>
-              <ChatMessage
-                message="  hello chatBot"
-                sender="user"
-                />
-              <ChatMessage 
-                message="Hello! how can I help you?" 
-                sender="robot"
-                />
-              <ChatMessage 
-                message="can you get today date?"
-                sender="user"
-                />
-              <ChatMessage 
-                message="Today is November 6"
-                sender="robot"
-                />
+              {chatMessageComponents}
            </>
     );
   }
 
-   const app = (
-      
-   );
+  
 
       const container = document.querySelector('.js-container');
-      ReactDOM.createRoot(container).render(<App></App>);
+      ReactDOM.createRoot(container).render(<App/ >);
     </script>
   </body>
 </html>
