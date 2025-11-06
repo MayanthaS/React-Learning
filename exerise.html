@@ -14,50 +14,10 @@
    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
   
    <script type="text/babel">
-   function ChatInput() {
+   function LoginForm(){
     return(
-      <>
-         <input 
-           placeholder="Send A message of Chatbox" 
-           size="30"
-         /> 
-         <button>Send</button>
-      </>
-    );
-   }
-   function ChatMessage({message,sender}){
-   //const message = props.message;
-   //const sender = props.sender;
-    //const {message,sender} = props;
-/*
-    if(sender == 'robot'){
-      return(
-        <div>
-           <img src="robot.png" width="25"/>
-           {message}  
-        
-        </div>
-      );
-    }
-
-*/
-    return(
-      <div>
-         {sender == 'robot' && (
-            <img src="robot.png" width="25"/>
-          )} 
-        {message}
-         {sender == 'user' && (
-            <img src="user.png" width="25"/>
-         )}
-      </div>
-     );
-   }
-
-  function App(){
-    return(
-           <>
-            <p>Hello ,welcome to my websites</p>
+        <>
+         <p>Hello ,welcome to my websites</p>
             <div>
                  <input
                         placeholder="Email" 
@@ -71,6 +31,13 @@
                    />
             </div>
             <button>Loging</button><button>Sign up</button>
+        </>
+    );
+   }
+  function App(){
+    return(
+           <>
+           <LoginForm/>
            </>
     );
   }
