@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>chatBot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+    
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+   <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+  
+   <script type="text/babel">
+   function ProductDetails(){
+    return(
+        <>
+            <CottonSocks/>
+            <TennisBall/>
+            <PlainTshirt/>   
+        </>
+    );
+   }
+   function CottonSocks(){
+    return(
+        <>
+            <h5>Cotton Socks</h5>
+            <p>price: ${"10.90"}</p>
+            <button>Add to Cart</button>
+        </>
+    );
+   }
+  function TennisBall(){
+    return(
+        <>
+            <h5>Tennis Ball</h5>
+            <p>price: ${"6.90"}</p>
+            <button>Add to Cart</button>
+        </>
+    );
+   }
+   function PlainTshirt(){
+    return(
+        <>
+            <h5>Plain T shirt</h5>
+            <p>price: ${"7.90"}</p>
+            <button>Add to Cart</button>
+        </>
+    );
+   }
+   
+  function App(){
+    return(
+           <>
+              <ProductDetails/>
+           </>
+    );
+  }
+
+  const container = document.querySelector('.js-container');
+      ReactDOM.createRoot(container).render(<App></App>);
+    </script>
+  </body>
+</html>
