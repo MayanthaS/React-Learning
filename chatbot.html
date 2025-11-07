@@ -4,12 +4,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>chatBot</title>
+    <style>
+      .send-button {
+        background-color: rgb(18, 183, 106);
+        color: white;
+        padding: 12px 20px;
+        margin-left: 10px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 10px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+      .chat-input{
+        padding: 12px 25px;
+        margin-top: 5px;
+        border-radius: 10px;
+        border-width: 1px;
+        font-size: 15px;
+        flex-grow: 1;
+      }
+      .chat-input-container{
+        display: flex;
+      }
+    </style>
   </head>
   <body>
     <div class="js-container"></div>
 
     <script src="https://unpkg.com/supersimpledev/react.js"></script>
     <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
     <script type="text/babel">
@@ -21,29 +47,48 @@
         }
 
         function sendMessage() {
-          if (inputText.trim() === '') return;
-
-          setChatMessages([
+          const newChatMessages = [
+             
             ...chatMessages,
             {
               message: inputText,
               sender: 'user',
               id: crypto.randomUUID()
             }
+          
+          ];
+
+          setChatMessages(newChatMessages);
+
+         const response =  Chatbot.getResponse(inputText);
+           setChatMessages([
+            ...newChatMessages,
+            {
+              message: response,
+              sender: 'robot',
+              id: crypto.randomUUID()
+            }
           ]);
+
+
+
           setInputText(''); // clear input
         }
 
         return (
-          <>
+          <div className="chat-input-container">
             <input
               placeholder="Send a message to Chatbot"
               size="30"
               value={inputText}
               onChange={saveInputText}
+              className="chat-input"
             />
-            <button onClick={sendMessage}>Send</button>
-          </>
+            <button 
+              onClick={sendMessage}
+              className ="send-button"
+            >Send</button>
+          </div>
         );
       }
 
