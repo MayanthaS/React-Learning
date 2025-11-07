@@ -1,5 +1,6 @@
   import { useEffect,useRef } from "react";
   import { ChatMessage } from "./ChatMessage";
+  import '../components/ChatMessages.css';
 
   export function ChatMessages({ chatMessages }) {
         const chatMessagesRef =useRef(null);
@@ -25,3 +26,4 @@
           </div>
         );
       }
+export default ChatMessages;
